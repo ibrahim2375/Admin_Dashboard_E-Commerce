@@ -1,0 +1,57 @@
+.app_bar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  height: 95vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--second-color);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.app_bar .app_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+.app_bar .admin_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+.list_nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.btn_app_bar_show {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  background-color: black;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+@media (max-width: 992px) {
+  .btn_app_bar_show {
+    display: flex;
+  }
+}

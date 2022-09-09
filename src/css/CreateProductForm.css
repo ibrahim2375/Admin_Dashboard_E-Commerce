@@ -1,0 +1,16 @@
+.inputs {
+  margin-bottom: 20px;
+  padding: 30px;
+  width: 100%;
+  background-color: var(--second-color);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  gap: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}

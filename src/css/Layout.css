@@ -1,0 +1,15 @@
+main {
+  display: flex;
+  justify-content: space-between;
+}
+.app_bar_area {
+  width: 400px;
+}
+.children {
+  flex: 1;
+}
+@media (max-width: 992px) {
+  .app_bar_area {
+    display: none;
+  }
+}

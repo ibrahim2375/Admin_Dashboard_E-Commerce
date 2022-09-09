@@ -1,0 +1,15 @@
+{
+  "colors": ["green", "brown", "red", "yellow", "white", "black", "gray"],
+  "sizes": ["sm", "md", "lg", "xl", "xxl"],
+  "types": ["feature", "popular", "new"],
+  "categories": ["mobiles", "watches", "laptops", "headphone"],
+  "state": ["hot", "best-sell", "new"],
+  "sellingPorts": [
+    "cairo",
+    "giza",
+    "kafr el-shekh",
+    "alexandria",
+    "sinai",
+    "port Saeed"
+  ]
+}
