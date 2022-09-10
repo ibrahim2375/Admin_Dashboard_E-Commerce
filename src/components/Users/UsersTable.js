@@ -9,6 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import IconButton from '@mui/material/IconButton';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 //router link 
 import { Link } from 'react-router-dom'
 const columns = [
@@ -17,8 +18,7 @@ const columns = [
     { id: 'actions', label: 'Actions', minWidth: 20 },
 ];
 
-
-export default function UsersTable({ users }) {
+export default function UsersTable({ users, DeleteUser }) {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -64,6 +64,9 @@ export default function UsersTable({ users }) {
                                                     <AutoFixHighOutlinedIcon />
                                                 </IconButton>
                                             </Link>
+                                            <IconButton aria-label="Example" onClick={() => DeleteUser(user?._id)}>
+                                                    <DeleteOutlineOutlinedIcon />
+                                                </IconButton>
                                         </TableCell>
                                     </TableRow>
                                 )
