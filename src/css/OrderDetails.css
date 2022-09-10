@@ -1,0 +1,15 @@
+.details {
+  margin-top: 20px;
+  padding: 30px;
+  width: 100%;
+  background-color: var(--second-color);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.details .field {
+  margin-bottom: 30px;
+}
