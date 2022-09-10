@@ -5,7 +5,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 //components
 import Save from './Save'
 //json data for products properties
@@ -22,7 +23,17 @@ export default function UpdateProduct({ handleChange, formData }) {
             autoComplete="on"
         >
             <div className="inputs">
-                <h4 style={{ color: message === 'updated' ? 'green' : 'red' }}> {message}</h4>
+                <img src={`${process.env.REACT_APP_API}/assets/uploads/${formData?.img}`} 
+                width='200' height={200}
+                alt="" />
+                {
+                    message === 'updated' && (
+                        <Alert severity="success">
+                            <AlertTitle>Success</AlertTitle>
+                            Updateed successfully — <strong>check it out!</strong>
+                        </Alert>
+                    )
+                }
                 {/* //name */}
                 <TextField
                     label="Name"

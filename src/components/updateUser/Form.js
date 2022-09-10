@@ -4,7 +4,8 @@ import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 //components
 import Save from './Save'
 export default function UpdateUser({ handleChange, formData }) {
@@ -19,7 +20,15 @@ export default function UpdateUser({ handleChange, formData }) {
             autoComplete="off"
         >
             <div className="inputs">
-                <h4 style={{ color: message === 'updated' ? 'green' : 'red' }}> {message}</h4>
+                {
+                    message === 'updated' && (
+                        <Alert severity="success">
+                            <AlertTitle>Success</AlertTitle>
+                           Updateed successfully — <strong>check it out!</strong>
+                        </Alert>
+                    )
+                }
+               
                 {/* //name */}
                 <TextField
                     type="text"
