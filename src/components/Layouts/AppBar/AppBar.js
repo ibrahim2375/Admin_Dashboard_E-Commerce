@@ -23,8 +23,7 @@ function AppBar() {
                 <Typography variant='h5' className='txt-color'>{admin?.name}</Typography>
             </div>
             <div className='admin_budget '>
-                <Typography variant='h4' className='txt-color'>$55,660</Typography>
-                <p className='muted'>monthly budget</p>
+                <Typography variant='p' className='txt-color muted'>{admin?.email}</Typography>
             </div>
             <ListOfPagee />
         </div>
