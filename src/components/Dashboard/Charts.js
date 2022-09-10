@@ -8,8 +8,8 @@ const data = [
 
 function Charts() {
     return (
-        <ResponsiveContainer  width="90%" height={300}>
-            <LineChart  data={data} >
+        <ResponsiveContainer width="90%" height={300}>
+            <LineChart data={data} >
                 <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                 <XAxis dataKey="name" />
