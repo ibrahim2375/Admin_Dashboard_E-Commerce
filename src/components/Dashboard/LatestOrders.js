@@ -15,7 +15,11 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-
+//time TimeAgo
+import TimeAgo from 'react-timeago'
+import enStrings from 'react-timeago/lib/language-strings/en'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
+const formatter = buildFormatter(enStrings)
 function TablePaginationActions(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
@@ -77,27 +81,14 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-const rows = [
-  {
-    id: 0,
-    name: 'ibrahim',
-    money: 55
-  },
-  {
-    id: 1,
-    name: 'mohames',
-    money: 30
-  }
 
-];
-
-export default function CustomPaginationActionsTable() {
+export default function LatestOrders({ latestOrders }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - latestOrders.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -113,17 +104,22 @@ export default function CustomPaginationActionsTable() {
       <Table sx={{ minWidth: 300 }} aria-label="custom pagination table">
         <TableBody>
           {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            <TableRow key={row.id} style={{ width: "100%" }}>
+            ? latestOrders.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : latestOrders
+          ).map((order) => (
+            <TableRow key={order?._id} style={{ width: "100%" }}>
               <TableCell style={{ width: 60 }} align="left">
-                {row.name}
+                {order.name}
               </TableCell>
-              <TableCell style={{ width: 60 }} align="right">
-                {row.money}$
+              <TableCell style={{ width: 50 }} align="left">
+                <TimeAgo date={`${order?.createdAt}`} formatter={formatter} />
               </TableCell>
-
+              <TableCell style={{ width: 30 }} align="right">
+                {order?.quantity * order?.price}$
+                {/* last one */}
+                {latestOrders.indexOf(order) === 0 &&
+                  <p style={{ color: 'lightgreen' }}>New</p>}
+              </TableCell>
             </TableRow>
           ))}
 
@@ -138,7 +134,7 @@ export default function CustomPaginationActionsTable() {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={3}
-              count={rows.length}
+              count={latestOrders.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{

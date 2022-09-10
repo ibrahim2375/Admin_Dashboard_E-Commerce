@@ -14,6 +14,7 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 //redux 
 import { useDispatch } from 'react-redux';
 import * as Actions from '../../../Redux/actions/Actions'
@@ -31,6 +32,12 @@ const AppBarList = {
             title: "Users",
             Icon: PeopleOutlineIcon,
             link: "/users"
+        },
+        {
+            id: 2,
+            title: "Orders",
+            Icon: ShoppingBagOutlinedIcon,
+            link: "/orders"
         }
     ],
     downList: [
