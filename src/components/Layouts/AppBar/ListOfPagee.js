@@ -15,6 +15,7 @@ import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/Production
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import BarChartIcon from '@mui/icons-material/BarChart';
 //redux 
 import { useDispatch } from 'react-redux';
 import * as Actions from '../../../Redux/actions/Actions'
@@ -52,6 +53,12 @@ const AppBarList = {
             title: "Cteate Product",
             Icon: AddShoppingCartOutlinedIcon,
             link: "/create-product"
+        },
+        {
+            id: 2,
+            title: "Sales",
+            Icon: BarChartIcon,
+            link: "/calc-sales"
         }
     ]
 }
@@ -69,7 +76,7 @@ function ListOfPagee() {
                             <ListItem disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <List.Icon className='txt-color' />
+                                        <List.Icon  />
                                     </ListItemIcon>
                                     <ListItemText primary={List.title} />
                                 </ListItemButton>
@@ -84,7 +91,7 @@ function ListOfPagee() {
                             <ListItem disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <List.Icon className='txt-color' />
+                                        <List.Icon  />
                                     </ListItemIcon>
                                     <ListItemText primary={List.title} />
                                 </ListItemButton>
@@ -97,7 +104,7 @@ function ListOfPagee() {
                 <ListItem disablePadding>
                     <ListItemButton onClick={logout}>
                         <ListItemIcon>
-                            <LogoutOutlinedIcon className='txt-color' />
+                            <LogoutOutlinedIcon  />
                         </ListItemIcon>
                         <ListItemText primary={'logout'} className='txt-color' />
                     </ListItemButton>
