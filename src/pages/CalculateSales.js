@@ -21,7 +21,6 @@ function CalculateSales({ orders }) {
             setSelectedOrders(selectedOrders.filter(s => s._id !== order?._id))
         }
     }
-
     //add to sales table to calculate total money and add data to chart 
     const addToSales = async () => {
         setLoading(true)
@@ -33,6 +32,7 @@ function CalculateSales({ orders }) {
                     await public_request.post('/orders/add-sales', { selectedOrders })
                         .then(res => {
                             setLoading(false)
+                            setTimeout(() => window.location.reload(), 1000)
                         }).catch(err => { console.log(err) })
                 }
             }).catch(err => { console.log(err) })

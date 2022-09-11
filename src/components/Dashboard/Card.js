@@ -6,20 +6,20 @@ import Typography from '@mui/material/Typography'
 //css
 import '../../css/Card.css'
 let totalPaidCount = 0;
-function Card({ orders }) {
+function Card({ sales }) {
     let [totalPaid, setTotalPaid] = useState(0)
     useEffect(() => {
         let finish = false;
         if (!finish) {
-            const total = orders?.map((order) => {
-                return setTotalPaid(totalPaidCount += (order?.quantity * order?.price))
+            const total = sales?.map((s) => {
+                return setTotalPaid(totalPaidCount += (s?.quantity * s?.price))
             })
-            if (total?.length === orders?.length) {
+            if (total?.length === sales?.length) {
                 finish = true;
                 totalPaidCount = 0;
             }
         }
-    }, [orders])
+    }, [sales])
     return (
         <div className='card'>
             <div className="card_head">
