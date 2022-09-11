@@ -10,6 +10,9 @@ import TableRow from '@mui/material/TableRow';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import IconButton from '@mui/material/IconButton';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import RemoveCircleOutlinedIcon from '@mui/icons-material/RemoveCircleOutlined';
+import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
+import RemoveModeratorOutlinedIcon from '@mui/icons-material/RemoveModeratorOutlined';
 //router link 
 import { Link } from 'react-router-dom'
 const columns = [
@@ -48,7 +51,7 @@ export default function UsersTable({ users, DeleteUser }) {
                     </TableHead>
                     <TableBody>
 
-                        {users?.length >= 0 && users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage )
+                        {users?.length >= 0 && users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((user) => {
                                 return (
                                     <TableRow hover role="checkbox" key={user?._id}>
@@ -65,8 +68,14 @@ export default function UsersTable({ users, DeleteUser }) {
                                                 </IconButton>
                                             </Link>
                                             <IconButton aria-label="Example" onClick={() => DeleteUser(user?._id)}>
-                                                    <DeleteOutlineOutlinedIcon />
-                                                </IconButton>
+                                                <DeleteOutlineOutlinedIcon />
+                                            </IconButton>
+                                            {/* //user ban icon */}
+                                            <IconButton aria-label="Example">
+                                                {user?.ban ?
+                                                    <RemoveModeratorOutlinedIcon sx={{ color: 'red' }} /> :
+                                                    <VerifiedUserOutlinedIcon sx={{ color: 'green' }} />}
+                                            </IconButton>
                                         </TableCell>
                                     </TableRow>
                                 )
