@@ -11,6 +11,7 @@
 ## project: React reducx
 
 ## steps
+```bash
 - npm install
-- npm start.
-
+- npm start
+```
